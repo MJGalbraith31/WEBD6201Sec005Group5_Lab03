@@ -5,7 +5,7 @@
         // constructors
         constructor() 
         {
-            this.ActiveLink = "home";
+            this.ActiveLink = "/home";
         }
 
         // Public Properties (getters and setters)
