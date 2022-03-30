@@ -216,7 +216,7 @@
         contactList.innerHTML = data;
 
         $("button.edit").on("click", function(){
-          location.href = "/edit#" + $(this).val();
+          location.href = "./edit#" + $(this).val();
          });
 
          $("button.delete").on("click", function(){
@@ -224,12 +224,12 @@
            {
             localStorage.removeItem($(this).val());
            }
-           location.href = "/contact-list"; // refresh the page
+           location.href = "./contact-list"; // refresh the page
          });
 
          $("#addButton").on("click", function() 
          {
-          location.href = "/edit";
+          location.href = "./edit";
          });
       }
     }
@@ -280,14 +280,14 @@
           localStorage.setItem(key, contact.serialize());
 
           // return to the contact list
-          location.href = "/contact-list";
+          location.href = "./contact-list";
           
         });
 
       $("#cancelButton").on("click", function()
       {
         // return to the contact list
-        location.href = "/contact-list";
+        location.href = "./contact-list";
       });
     }
 
@@ -328,7 +328,7 @@
           messageArea.removeAttr("class").hide();
 
           // redirect user to secure area - contact-list.html
-          location.href = "/contact-list";
+          location.href = "./contact-list";
         }
         else
         {
@@ -363,7 +363,7 @@
         // clear the login form
         document.forms[0].reset();
         // return to the home page
-        location.href = "/home";
+        location.href = "./home";
       });
     }
 
@@ -388,7 +388,7 @@
           sessionStorage.clear();
 
           // redirect back to login
-          location.href = "/login";
+          location.href = "./login";
         });
 
         // make it look like each nav item is an active link
@@ -415,7 +415,7 @@
       if(!sessionStorage.getItem("user"))
       {
       // redirect back to login page
-      location.href = "/login";
+      location.href = "./login";
       }
     }
 
