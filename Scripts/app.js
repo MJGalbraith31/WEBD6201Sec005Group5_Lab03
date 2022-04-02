@@ -281,14 +281,14 @@
 
           // return to the contact list
           //location.href = "./contact-list";
-          changePage("/contact-list");
+          changePage("contact-list");
         });
 
       $("#cancelButton").on("click", function()
       {
         // return to the contact list
         //location.href = "./contact-list";
-        changePage("/contact-list");
+        changePage("contact-list");
       });
     }
 
@@ -330,7 +330,7 @@
 
           // redirect user to secure area - contact-list.html
           //location.href = "./contact-list";
-          changePage("/contact-list");
+          changePage("contact-list");
         }
         else
         {
@@ -366,7 +366,7 @@
         document.forms[0].reset();
         // return to the home page
         //location.href = "./home";
-        changePage("/home");
+        changePage("home");
       });
     }
 
@@ -392,7 +392,7 @@
 
           // redirect back to login
           //location.href = "./login";
-          changePage("/login");
+          changePage("login");
         });
 
         // make it look like each nav item is an active link
@@ -420,7 +420,7 @@
       {
       // redirect back to login page
       //location.href = "./login";
-        changePage("/login");
+        changePage("login");
       }
     }
 
