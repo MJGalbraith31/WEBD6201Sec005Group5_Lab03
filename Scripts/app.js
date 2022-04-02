@@ -217,20 +217,20 @@
 
         $("button.edit").on("click", function(){
           location.href = "./edit#" + $(this).val();
-         });
+        });
 
-         $("button.delete").on("click", function(){
-           if(confirm("Are you sure?"))
-           {
+        $("button.delete").on("click", function(){
+          if(confirm("Are you sure?"))
+          {
             localStorage.removeItem($(this).val());
-           }
-           location.href = "./contact-list"; // refresh the page
-         });
+          }
+          location.href = "./contact-list"; // refresh the page
+        });
 
-         $("#addButton").on("click", function() 
-         {
+        $("#addButton").on("click", function() 
+        {
           location.href = "./edit";
-         });
+        });
       }
     }
 
@@ -280,14 +280,15 @@
           localStorage.setItem(key, contact.serialize());
 
           // return to the contact list
-          location.href = "./contact-list";
-          
+          //location.href = "./contact-list";
+          changePage("/contact-list");
         });
 
       $("#cancelButton").on("click", function()
       {
         // return to the contact list
-        location.href = "./contact-list";
+        //location.href = "./contact-list";
+        changePage("/contact-list");
       });
     }
 
@@ -328,7 +329,8 @@
           messageArea.removeAttr("class").hide();
 
           // redirect user to secure area - contact-list.html
-          location.href = "./contact-list";
+          //location.href = "./contact-list";
+          changePage("/contact-list");
         }
         else
         {
@@ -363,7 +365,8 @@
         // clear the login form
         document.forms[0].reset();
         // return to the home page
-        location.href = "./home";
+        //location.href = "./home";
+        changePage("/home");
       });
     }
 
@@ -388,7 +391,8 @@
           sessionStorage.clear();
 
           // redirect back to login
-          location.href = "./login";
+          //location.href = "./login";
+          changePage("/login");
         });
 
         // make it look like each nav item is an active link
@@ -415,7 +419,8 @@
       if(!sessionStorage.getItem("user"))
       {
       // redirect back to login page
-      location.href = "./login";
+      //location.href = "./login";
+        changePage("/login");
       }
     }
 
@@ -532,6 +537,15 @@
                 $(this).closest("li").remove();
             }    
         });
+    }
+
+    function changePage(page)
+    {
+        $(`#${router.ActiveLink}`).removeClass("active"); // removes highlighted link
+        router.ActiveLink = page;
+        loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
+        $(`#${router.ActiveLink}`).addClass("active"); // applies highlighted link to new page
+        history.pushState({},"", router.ActiveLink); // this replaces the url displayed in the browser
     }
 
     function Start()
