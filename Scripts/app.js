@@ -544,8 +544,18 @@
         $(`#${router.ActiveLink}`).removeClass("active"); // removes highlighted link
         router.ActiveLink = page;
         loadContent(router.ActiveLink, ActiveLinkCallBack(router.ActiveLink));
+        toggleLogin();
         $(`#${router.ActiveLink}`).addClass("active"); // applies highlighted link to new page
         history.pushState({},"", router.ActiveLink); // this replaces the url displayed in the browser
+        setHeaderRouting();
+    }
+
+    function setHeaderRouting()
+    {
+      $("a").on("click", function()
+      {
+        changePage($(this).attr("id"));
+      });
     }
 
     function Start()
