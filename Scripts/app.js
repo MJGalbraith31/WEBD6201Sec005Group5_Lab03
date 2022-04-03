@@ -409,7 +409,7 @@
           <a id="contact-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Contact List</a>
           </li>`).insertBefore("#loginListItem");
           $(`<li id="tasklistListItem" class="nav-item">
-          <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Task List</a>
+          <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-list fa-lg"></i> Task List</a>
           </li>`).insertBefore("#loginListItem");
         }
         
@@ -500,6 +500,9 @@
      */
     function DisplayTaskList()
     {
+        // don't allow visitors to go here
+        authGuard();
+
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");
@@ -567,6 +570,11 @@
       $("a").on("click", function()
       {
         changePage($(this).attr("id"));
+      });
+
+      $("a").on("mouseover", function()
+      {
+        $(this).css('cursor', 'pointer');
       });
     }
 
