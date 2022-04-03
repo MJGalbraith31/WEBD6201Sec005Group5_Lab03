@@ -1,8 +1,10 @@
-/* custom JavaScript goes here */
-
-//IIFE - Immediately Invoked Function Expression
-//AKA - Anonymous Self-Executing Function
-//Closure - limits scope leak
+/*
+    Authors: MJ Galbraith (100755993), Matthew Austin (100660651)
+    File: app.js
+    Date: 2022/04/01
+    Description: 
+        This is the javascript file for the website
+*/
 
 "use strict";
 
@@ -400,10 +402,17 @@
         {
           $(this).css('cursor', 'pointer');
         });
-       
-        $(`<li class="nav-item">
-        <a id="contact-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Contact List</a>
-      </li>`).insertBefore("#loginListItem");
+
+        if ($("#contactListItem").length <= 0)
+        {
+          $(`<li id="contactListItem" class="nav-item">
+          <a id="contact-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Contact List</a>
+          </li>`).insertBefore("#loginListItem");
+          $(`<li id="tasklistListItem" class="nav-item">
+          <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Task List</a>
+          </li>`).insertBefore("#loginListItem");
+        }
+        
       }
       else
       {
@@ -411,6 +420,9 @@
         $("#loginListItem").html(
           `<a id="login" class="nav-link" aria-current="page"><i class="fas fa-sign-in-alt"></i> Login</a>`
           );
+
+          $("#contactListItem").remove();
+          $("#tasklistListItem").remove();
       }
     }
 
